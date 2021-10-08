@@ -7,7 +7,6 @@ console.log(nome);
 var idade = 27;
 // idade = 'Ana'
 console.log(idade);
-//
 //boolean
 var possuiHobbies = false;
 // possuiHobbies = 1
@@ -46,3 +45,7 @@ console.log(Cor.Azul);
 console.log(Cor.Laranja, Cor.Amarelo);
 console.log(Cor.Verde, Cor.Vermelho); //duplicado, é possível
 // any
+var carro = 'BMW';
+console.log(carro);
+carro = { marca: 'BMW', ano: 2021 };
+console.log(carro);

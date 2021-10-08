@@ -7,7 +7,7 @@ console.log(nome)
 let idade: number = 27
 // idade = 'Ana'
 console.log(idade)
-//
+
 
 //boolean
 let possuiHobbies: boolean = false;
@@ -53,5 +53,8 @@ console.log(Cor.Laranja, Cor.Amarelo)
 console.log(Cor.Verde, Cor.Vermelho) //duplicado, é possível
 
 // any
-
+let carro: any = 'BMW'
+console.log(carro)
+carro = { marca: 'BMW', ano: 2021 }
+console.log(carro)
 
