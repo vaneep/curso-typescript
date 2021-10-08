@@ -58,3 +58,87 @@ console.log(carro)
 carro = { marca: 'BMW', ano: 2021 }
 console.log(carro)
 
+//funcao
+function retornaMeuNome(): String {
+    return nome
+}
+console.log(retornaMeuNome())
+
+function digaOi(): void {
+    console.log('Oi')
+}
+
+digaOi()
+
+function multiplicar(numA: number, numB: number): number {
+    return numA * numB
+}
+console.log(multiplicar(2.8, 5))
+
+//tipo função
+let calculo: (x: number, y: number) => number
+// let calculo = digaOi
+// calculo()
+calculo = multiplicar
+console.log(calculo(5, 6))
+
+//objetos
+
+let usuario: { nome: string, idade: number } = {
+    nome: 'João',
+    idade: 27
+}
+console.log(usuario)
+// usuario = {}
+
+// usuario = {
+//     name: 'Maria',
+//     age: 31
+// }
+
+usuario = {
+    idade: 31,
+    nome: 'Maria',
+}
+
+console.log(usuario)
+
+//Desafio
+// Criar um objeto funcinário com:
+//     -array de strings com nomes dos supervisores
+//     -função de bater ponto que recebe a hora (num) e retorna uma string
+//         -> Ponto normal (<=8)
+//         ->Fora do horário (>8)
+
+// EXERCICIO BY VANESSA
+let funcionarios: string[] = ['Vanessa', 'Ana', 'Júlia']
+
+function baterPonto(hora: number): any {
+    if (hora <= 8) {
+        console.log(hora, 'Ponto normal')
+    } else if (hora > 8) {
+        console.log(hora, 'Fora do horário')
+    }
+}
+
+baterPonto(7)
+
+// EXERCICIO PROFESSOR
+
+let funcionario: {
+    supervisores: string[],
+    baterPontos: (horas: number) => string
+} = {
+    supervisores: ['Ana', 'Fernando'],
+    baterPontos(horario: number): string {
+        if (horario <= 8) {
+            return 'Ponto normal'
+        } else {
+            return 'Fora do horário'
+        }
+    }
+}
+
+console.log(funcionario.supervisores)
+console.log(funcionario.baterPontos(8))
+console.log(funcionario.baterPontos(9))

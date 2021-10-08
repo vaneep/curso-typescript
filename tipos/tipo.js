@@ -49,3 +49,70 @@ var carro = 'BMW';
 console.log(carro);
 carro = { marca: 'BMW', ano: 2021 };
 console.log(carro);
+//funcao
+function retornaMeuNome() {
+    return nome;
+}
+console.log(retornaMeuNome());
+function digaOi() {
+    console.log('Oi');
+}
+digaOi();
+function multiplicar(numA, numB) {
+    return numA * numB;
+}
+console.log(multiplicar(2.8, 5));
+//tipo função
+var calculo;
+// let calculo = digaOi
+// calculo()
+calculo = multiplicar;
+console.log(calculo(5, 6));
+//objetos
+var usuario = {
+    nome: 'João',
+    idade: 27
+};
+console.log(usuario);
+// usuario = {}
+// usuario = {
+//     name: 'Maria',
+//     age: 31
+// }
+usuario = {
+    idade: 31,
+    nome: 'Maria',
+};
+console.log(usuario);
+//Desafio
+// Criar um objeto funcinário com:
+//     -array de strings com nomes dos supervisores
+//     -função de bater ponto que recebe a hora (num) e retorna uma string
+//         -> Ponto normal (<=8)
+//         ->Fora do horário (>8)
+// EXERCICIO BY VANESSA
+var funcionarios = ['Vanessa', 'Ana', 'Júlia'];
+function baterPonto(hora) {
+    if (hora <= 8) {
+        console.log(hora, 'Ponto normal');
+    }
+    else if (hora > 8) {
+        console.log(hora, 'Fora do horário');
+    }
+}
+baterPonto(7);
+// EXERCICIO PROFESSOR
+var funcionario = {
+    supervisores: ['Ana', 'Fernando'],
+    baterPontos: function (horario) {
+        if (horario <= 8) {
+            return 'Ponto normal';
+        }
+        else {
+            return 'Fora do horário';
+        }
+    }
+};
+console.log(funcionario.supervisores);
+console.log(funcionario.baterPontos(8));
+console.log(funcionario.baterPontos(9));
