@@ -125,6 +125,11 @@ baterPonto(7)
 
 // EXERCICIO PROFESSOR
 
+//alias
+// type funcionario = {
+//     supervisores: string[],
+//     baterPonto: (horas: number) => string
+// }
 let funcionario: {
     supervisores: string[],
     baterPontos: (horas: number) => string
@@ -139,6 +144,118 @@ let funcionario: {
     }
 }
 
+let funcionario2: {
+    supervisores: string[],
+    baterPontos: (horas: number) => string
+} = {
+    supervisores: ['Bia', 'Carlos'],
+    baterPontos(horario: number): string {
+        if (horario <= 8) {
+            return 'Ponto normal'
+        } else {
+            return 'Fora do horário'
+        }
+    }
+}
+
 console.log(funcionario.supervisores)
 console.log(funcionario.baterPontos(8))
 console.log(funcionario.baterPontos(9))
+
+//union types
+let nota: number | string = 10
+console.log(`Minha nota é ${nota}!`);
+nota = '10'
+console.log(`Minha nota é ${nota}!`);
+
+//Checando tipos
+let valor = 10
+
+if (typeof valor === "number") {
+    console.log("é um valor number");
+} else {
+    console.log((typeof valor));
+}
+
+//tipo never 
+
+function falha(msg: string): never {
+    throw new Error(msg);
+
+}
+
+const produto = {
+    nome: 'Sabão',
+    preco: 4,
+    validarProduto() {
+        if (!this.nome || this.nome.trim().length === 0) {
+            falha("Precisa ter um nome")
+        }
+
+        if (this.preco <= 0) {
+            falha("Preço inválido")
+        }
+    }
+}
+
+produto.validarProduto()
+
+//valores opcionais
+
+let altura = 12
+let alturaOpcional: null | number = 12
+alturaOpcional = null
+// altura = null -- nao aceita valor null
+
+
+type Contato = {
+    nome: string,
+    tel1: string,
+    tel2: string | null
+}
+
+const contato1: Contato = {
+    nome: 'Fulano',
+    tel1: '4546446',
+    tel2: null
+}
+
+console.log(contato1.nome);
+console.log(contato1.tel1);
+console.log(contato1.tel2);
+
+// let podeSerNulo: null = null //nao faz sentido deixar valor padrao nulo
+let podeSerNulo: any = null //nao faz sentido deixar valor padrao nulo
+podeSerNulo = 12
+console.log(podeSerNulo);
+podeSerNulo = 'abc'
+console.log(podeSerNulo);
+
+//desafio
+
+type ContaBancaria = {
+    saldo: number,
+    depositar: (valor: number) => void
+}
+
+let contaBancaria: ContaBancaria = {
+    saldo: 3456,
+    depositar(valor: number) {
+        this.saldo += valor
+    }
+}
+
+type Correntista = {
+    nome: string,
+    contaBancaria: ContaBancaria,
+    contatos: string[]
+}
+
+let correntista: Correntista = {
+    nome: 'Ana Silva',
+    contaBancaria: contaBancaria,
+    contatos: ['5466546546', '456465465']
+}
+
+correntista.contaBancaria.depositar(3000)
+console.log(correntista);
